@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-viewlibrary',
@@ -7,8 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewlibraryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myapi:ApiService) { 
+this.fetchData()
+  }
 
+
+
+  fetchData=()=>{
+    this.myapi.viewData().subscribe(
+      (data)=>{
+        this.libraryData=data
+      }
+    )
+  }
+  
+  libraryData:any=[]
   ngOnInit(): void {
   }
 

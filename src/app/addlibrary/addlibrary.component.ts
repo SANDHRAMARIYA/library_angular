@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-addlibrary',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddlibraryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myapi:ApiService) { }
 
 
 
@@ -30,7 +31,21 @@ readValues=()=>{
    "issuedate":this.issuedate
   }
   console.log(data)
+  this.myapi.addData(data).subscribe(
+    (response)=>{
+      console.log(response)
+      alert("successfully added")
+      this.bookcode=""
+      this.bookname=""
+    this.booktype=""
+     this.authorname=""
+    this.issuedate=""
+    this.status=true
+    }
+  )
+
 }
+
   ngOnInit(): void {
   }
 
