@@ -22,6 +22,20 @@ this.fetchData()
     )
   }
   
+  
+
+  deletelibrary=(id:any)=>{
+    let data={
+      "id":id
+    }
+    this.myapi.deletelibrary(data).subscribe(
+      (response)=>{
+        alert("DELETED")
+      }
+    )
+    this.fetchData()
+  }
+
   libraryData:any=[]
   ngOnInit(): void {
   }
