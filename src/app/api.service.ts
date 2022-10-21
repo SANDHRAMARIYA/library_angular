@@ -24,4 +24,7 @@ export class ApiService {
     searchlibrary=(data:any)=>{
       return this.http.post("http://localhost:8080/searchlibrary",data)
     }
+    updatelibrary=(data:any)=>{
+      return this.http.post("http://localhost:8080/editlibrary",data)
+    }
 }

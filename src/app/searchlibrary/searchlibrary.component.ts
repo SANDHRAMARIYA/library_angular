@@ -22,6 +22,13 @@ export class SearchlibraryComponent implements OnInit {
 this.data=response
       }
     )
+  }
+updatelibrary=()=>{
+this.myapi.updatelibrary(this.data[0]).subscribe(
+  (res)=>{
+    alert("succesly updated")
+  }
+)
 
   }
   data:any=[]
